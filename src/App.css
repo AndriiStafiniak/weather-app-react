@@ -4,9 +4,12 @@ body {
    align-items: center;
    background-image: url(../public/backround.avif);
    background-size: cover;
+   background-repeat: round;
+
 }
 
 .container {
+   min-height: 150px;
    color: #ffffff;
    margin: 0 auto;
    max-width: 400px;
