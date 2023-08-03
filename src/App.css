@@ -66,6 +66,10 @@ h1 {
    text-align: left;
 }
 
+.no-data {
+   color: red;
+}
+
 @media screen and (max-width: 600px) {
    .weather-form {
       grid-template-columns: 1fr;
