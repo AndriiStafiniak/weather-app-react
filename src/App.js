@@ -1,29 +1,25 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import WeatherForm from "./components/WeatherForm";
 import WeatherInfo from "./components/WeatherInfo";
 import SunriseSunset from "./components/SunriseSunset";
 import WindInfo from "./components/WindInfo";
 import "./App.css";
+
 const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState(null);
-  const [showMessage, setShowMessage] = useState(false);
-  const API_KEY = "668730bb0fd34e0e2f50c518e7230127"
-
+  const API_KEY = "668730bb0fd34e0e2f50c518e7230127";
 
   const fetchWeatherData = async (city) => {
     try {
-      if (city.toLowerCase() === "skala podilska") {
+      setWeatherData(null);
 
-        setWeatherData(null);
-        setShowMessage(true);
-        return;
-      }
+
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=pl`
       );
       setWeatherData(response.data);
-      setShowMessage(false);
+
     } catch (error) {
       console.error("Error fetching weather data: ", error);
     }
@@ -43,12 +39,9 @@ const WeatherApp = () => {
           <WindInfo windSpeed={weatherData.wind.speed} />
           <p>Data: {new Date().toLocaleDateString()}</p>
         </div>
-      ) : showMessage ? (
-        <p className="no-data">Cześć Ola, nikt nie wie jaka jest pogoda w twojej wiosce.</p>
       ) : null}
     </div>
   );
 };
 
 export default WeatherApp;
-
