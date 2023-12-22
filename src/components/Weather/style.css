@@ -1,18 +1,4 @@
-body {
-   background-image: url(../public/backround.avif);
-   background-size: cover;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   position: relative;
-   height: 100vh;
-   background-repeat: no-repeat;
-
-
-}
-
 .container {
-
    color: #ffffff;
    margin: 0 auto;
    max-width: 400px;
