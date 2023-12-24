@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useGetData } from "../getData";
 
 const WeatherForm = ({ onSubmit }) => {
-   const [city, setCity] = useState("");
+   const [city, setCity] = useState("Warszawa");
+   const weatherData = useGetData(city);
 
    const handleInputChange = (e) => {
       setCity(e.target.value);
@@ -13,7 +15,9 @@ const WeatherForm = ({ onSubmit }) => {
    };
 
    return (
-      <form className="weather-form" onSubmit={handleSubmit}>
+      <form
+
+         className="weather-form" >
          <input
             type="text"
             placeholder="Wprowadź nazwę miasta"
@@ -21,7 +25,9 @@ const WeatherForm = ({ onSubmit }) => {
             onChange={handleInputChange}
             className="city-input"
          />
-         <button type="submit" className="submit-button">
+         <button
+            onSubmit={handleSubmit}
+            className="submit-button">
             Sprawdź
          </button>
       </form>
