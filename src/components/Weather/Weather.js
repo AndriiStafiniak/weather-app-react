@@ -2,35 +2,46 @@ import { useGetData } from "../../getData";
 import "./style.css"
 import { useState } from "react";
 export const Weather = () => {
-   const [city, setCity] = useState("Warszawa")
+   const [city, setCity] = useState("");
+   const [weatherData, setWeatherData] = useState(null)
+   const setWeatherDataParam = useGetData(city);
 
-   const weatherData = useGetData(city);
 
-   if (!weatherData) {
-      return <p>Ładowanie danych...</p>;
+   const handleInputChange = (event) => {
+      setCity(event.target.value)
+   };
+   const handleSubmit = (event) => {
+      event.preventDefault();
    }
-   const { main, wind, name } = weatherData;
-
-   if (!main) {
-      return <p>Brak danych pogodowych</p>;
-   }
-
-   const { temp, feels_like, temp_min, temp_max, pressure, humidity } = main;
-   const { speed, deg, gust } = wind;
-
 
    return (
       <div style={{ color: "white" }} >
-         <h2>{name}</h2>
-         <p>Temperatura: {temp}°C</p>
-         <p>Odczuwalna temperatura: {feels_like}°C</p>
-         <p>Temp. min: {temp_min}°C</p>
-         <p>Temp. max: {temp_max}°C</p>
-         <p>Ciśnienie: {pressure} hPa</p>
-         <p>Wilgotność: {humidity}%</p>
-         <p>Prędkość wiatru: {speed} m/s</p>
-         <p>Kierunek wiatru: {deg}°</p>
-         <p>Porywy wiatru: {gust} m/s</p>
-      </div >
+         <form onSubmit={handleSubmit}>
+            <input
+               onChange={handleInputChange}
+               placeholder="wpisz nazwe miasta"
+               value={city}
+               type="text" />
+            <button
+               onClick={() => setWeatherData(setWeatherDataParam)}
+            >Sprawdz</button>
+         </form>
+         {weatherData ? (
+            <>
+               <h2>{weatherData.name}</h2>
+               <p>Temperatura: {weatherData.main.temp}°C</p>
+               <p>Odczuwalna temperatura: {weatherData.main.feels_like}°C</p>
+               <p>Temp. min: {weatherData.main.temp_min}°C</p>
+               <p>Temp. max: {weatherData.main.temp_max}°C</p>
+               <p>Ciśnienie: {weatherData.main.pressure} hPa</p>
+               <p>Wilgotność: {weatherData.main.humidity}%</p>
+               <p>Prędkość wiatru: {weatherData.wind.speed} m/s</p>
+               <p>Kierunek wiatru: {weatherData.wind.deg}°</p>
+               <p>Porywy wiatru: {weatherData.wind.gust} m/s</p>
+            </>
+         ) : (
+            <p>Brak danych pogodowych</p>
+         )}
+      </div>
    );
 };
