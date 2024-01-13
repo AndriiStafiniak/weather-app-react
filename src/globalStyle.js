@@ -1,4 +1,7 @@
-html {
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+    html {
   box-sizing: border-box;
 }
 
@@ -18,6 +21,5 @@ body {
   position: relative;
   height: 100vh;
   background-repeat: no-repeat;
-
-
 }
+`;
