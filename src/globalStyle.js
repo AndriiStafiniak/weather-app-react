@@ -1,7 +1,9 @@
 import { createGlobalStyle } from "styled-components";
+import background from "./images/background.jpeg"
+
 
 export const GlobalStyle = createGlobalStyle`
-    html {
+html {
   box-sizing: border-box;
 }
 
@@ -13,13 +15,9 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-image: url(../public/backround.avif);
+  background-image: url(${background});
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  height: 100vh;
   background-repeat: no-repeat;
 }
 `;
