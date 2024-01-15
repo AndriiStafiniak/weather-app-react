@@ -10,6 +10,6 @@ export const theme = {
       hoverRed: "hsl(0, 100%, 80%)",
    },
    breakpoints: {
-      mobile: 767,
+      mobile: 600,
    },
 };

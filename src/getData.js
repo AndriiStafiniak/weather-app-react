@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 
 const API_KEY = "668730bb0fd34e0e2f50c518e7230127";
 export const useGetData = (city) => {
-   const [weatherData, setWeatherData] = useState(null);
+   const [weatherData, setWeatherData] = useState({
+      status: "loading",
+      data: null,
+   });
    useEffect(() => {
       const fetchData = async () => {
          try {
@@ -11,15 +14,25 @@ export const useGetData = (city) => {
             const lon = cityResponse.data[0].lon;
             const lat = cityResponse.data[0].lat
 
-            const responseWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
-            setWeatherData(responseWeather.data);
+            const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
+            setWeatherData({
+               status: "success",
+               data,
+            });
          } catch (error) {
-            console.error("Error fetching weather data: ", error)
+            setWeatherData({
+               status: "Error",
+               data: null,
+            })
+
          }
       }
-      fetchData();
+      // if (city && weatherData) {
+      //    setTimeout(fetchData, 3000)
+      // }
+
+      return { weatherData, fetchData };
    }, [city]);
-   return weatherData;
 };
 
 
