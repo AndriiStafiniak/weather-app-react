@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-
 const API_KEY = "668730bb0fd34e0e2f50c518e7230127";
-export const useGetData = (city) => {
+
+
+export const GetData = (city) => {
    const [weatherData, setWeatherData] = useState({
       status: "loading",
       data: null,
@@ -27,12 +28,13 @@ export const useGetData = (city) => {
 
          }
       }
-      // if (city && weatherData) {
-      //    setTimeout(fetchData, 3000)
-      // }
+      if (city) {
+         setTimeout(fetchData(city), 3000)
+      }
 
-      return { weatherData, fetchData };
+
    }, [city]);
+   return weatherData;
 };
 
 
