@@ -35,7 +35,7 @@ export const Weather = () => {
       setTimeout(async () => {
 
          try {
-            const cityResponse = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_KEY}`);
+            const cityResponse = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_KEY}`);
             const lon = cityResponse.data[0].lon;
             const lat = cityResponse.data[0].lat
 
@@ -51,7 +51,7 @@ export const Weather = () => {
                data: null,
             });
          }
-      }, 1500)
+      }, 1000)
 
    };
 

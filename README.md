@@ -1,4 +1,6 @@
 # Weather App
+## How it work 
+![GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3Q1MjB6Mmc0dXVnaW43bHNiaWFxanowd2M4MzFkZDlhc3A3MnQwNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2A5heDwy4KamnTgWzw/giphy.gif)
 
 ## Demo: 
 https://andriistafiniak.github.io/weather-app-react/

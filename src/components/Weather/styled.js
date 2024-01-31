@@ -47,15 +47,19 @@ export const Button = styled.button`
    }
    &:hover{
    scale: 1.1;
-  
+  filter: brightness(120%);
    }
 `;
 
 export const Paragraph = styled.p`
    font-size: 18px;
    color: black;
-   margin-left: 30px;
+   margin: 30px;
    color: ${({ theme }) => theme.colors.teal};
+   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}px){
+      font-size: 12px;
+      margin: 10px;
+   };
 `;
 export const Title = styled.h2`
     font-size: 26px;
