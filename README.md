@@ -1,5 +1,5 @@
 # Weather App
-![Weather App](/public/screen.png)
+
 ## Demo: 
 https://andriistafiniak.github.io/weather-app-react/
 
