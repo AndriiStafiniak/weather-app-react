@@ -8,6 +8,7 @@ export const theme = {
       hoverGreen: "hsl(124, 97%, 85%)",
       red: "hsl(0, 100%, 50%)",
       hoverRed: "hsl(0, 100%, 80%)",
+      crimson: "#dc143c",
    },
    breakpoints: {
       mobile: 600,
