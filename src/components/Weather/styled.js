@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
    justify-content: center;
    background-color: ${({ theme }) => theme.colors.white};
    border-radius: 5px;
-   box-shadow:  -2px 6px 18px 0.5px rgb(152 158 185);
 `;
 
 export const Form = styled.form`
@@ -56,11 +55,14 @@ export const Paragraph = styled.p`
    font-size: 18px;
    color: black;
    margin-left: 30px;
+   color: ${({ theme }) => theme.colors.teal};
 `;
 export const Title = styled.h2`
     font-size: 26px;
     margin-left: 12px;
     font-weight: 600px;
     color: ${({ theme }) => theme.colors.teal};
-   
+`;
+export const StyleSpan = styled.span`
+   color: ${({ theme }) => theme.colors.crimson};
 `;
